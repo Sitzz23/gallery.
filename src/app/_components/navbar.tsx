@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -12,9 +12,15 @@ const Navbar = () => {
         </span>
       </Link>
       <div className="ml-auto flex items-center space-x-4">
-        <Link href="/signin">
+        {/* <Link href="/signin">
           <Button className="relative rounded-lg">Sign In</Button>
-        </Link>
+        </Link> */}
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </nav>
   );
