@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
+import { UploadDropzone } from "~/utils/uploadthing";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,10 @@ export default function HomePage() {
           <p>please sign in</p>
         </SignedOut>
         <SignedIn>
-          <Images />
+          <div className="flex flex-col items-center justify-center gap-4">
+            <UploadDropzone endpoint="imageUploader" />
+            <Images />
+          </div>
         </SignedIn>
       </div>
     </main>
