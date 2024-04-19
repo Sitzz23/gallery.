@@ -1,6 +1,5 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
-import { UploadDropzone } from "~/utils/uploadthing";
 
 export const dynamic = "force-dynamic";
 
@@ -12,10 +11,7 @@ export default function HomePage() {
           <p>please sign in</p>
         </SignedOut>
         <SignedIn>
-          <div className="flex flex-col items-center justify-center gap-4">
-            <UploadDropzone endpoint="imageUploader" />
-            <Images />
-          </div>
+          <Images />
         </SignedIn>
       </div>
     </main>
@@ -28,8 +24,8 @@ const Images = async () => {
   });
   return (
     <div className="flex flex-wrap gap-4 ">
-      {[...images, ...images].map((image, index) => (
-        <div key={image.id + "-" + index} className="flex w-48  flex-col ">
+      {images.map((image) => (
+        <div key={image.id} className="flex w-48  flex-col ">
           <img src={image.url} alt="image" />
           <p>{image.name}</p>
         </div>
