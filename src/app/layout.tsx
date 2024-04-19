@@ -1,9 +1,11 @@
 import "~/styles/globals.css";
 import "@uploadthing/react/styles.css";
-
+import { extractRouterConfig } from "uploadthing/server";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { Inter } from "next/font/google";
 import Navbar from "~/app/_components/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ourFileRouter } from "./api/uploadthing/core";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,6 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <body className={`font-sans ${inter.variable}`}>
           <Navbar />
           {children}
