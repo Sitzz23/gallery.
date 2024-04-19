@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "~/server/db";
+import { getImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
@@ -19,9 +19,8 @@ export default function HomePage() {
 }
 
 const Images = async () => {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getImages();
+
   return (
     <div className="flex flex-wrap gap-4 ">
       {images.map((image) => (
