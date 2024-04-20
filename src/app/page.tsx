@@ -26,12 +26,13 @@ const Images = async () => {
   return (
     <div className="flex flex-wrap gap-4 ">
       {images.map((image) => (
-        <div key={image.id} className="flex w-48  flex-col ">
+        <div key={image.id} className="flex h-48 w-48 flex-col ">
           <Image
             src={image.url}
-            style={{ objectFit: "contain" }}
+            height={480}
+            width={480}
             alt="image"
-            fill={true}
+            style={{ objectFit: "contain" }}
           />
           <p>{image.name}</p>
         </div>
