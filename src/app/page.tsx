@@ -1,6 +1,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+// import { Dialog, DialogTrigger } from "~/components/ui/dialog";
 import { getImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
@@ -35,7 +36,7 @@ const Images = async () => {
               alt="image"
               style={{ objectFit: "contain" }}
             />
-          </Link>
+</Link>
           <p>{image.name}</p>
         </div>
       ))}
