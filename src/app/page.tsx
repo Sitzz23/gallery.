@@ -1,6 +1,7 @@
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "~/components/ui/button";
 // import { Dialog, DialogTrigger } from "~/components/ui/dialog";
 import { getImages } from "~/server/queries";
 
@@ -9,10 +10,17 @@ export const dynamic = "force-dynamic";
 export default function HomePage() {
   return (
     <main className="p-4">
-      <div>
+      <div className="flex h-[86vh] w-screen items-center justify-center">
         <SignedOut>
-          <p>please sign in</p>
+          <div className="flex flex-col gap-4">
+            <p>Sign in to view content!</p>
+            <Button variant={"default"}>
+              <SignInButton />
+            </Button>
+          </div>
         </SignedOut>
+      </div>
+      <div>
         <SignedIn>
           <Images />
         </SignedIn>
