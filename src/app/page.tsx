@@ -10,21 +10,21 @@ export const dynamic = "force-dynamic";
 export default function HomePage() {
   return (
     <main className="p-4">
-      <div className="flex h-[86vh] w-screen items-center justify-center">
-        <SignedOut>
+      <SignedOut>
+        <div className="flex h-[86vh] w-screen items-center justify-center">
           <div className="flex flex-col gap-4">
             <p>Sign in to view content!</p>
             <Button variant={"default"}>
               <SignInButton />
             </Button>
           </div>
-        </SignedOut>
-      </div>
-      <div>
-        <SignedIn>
+        </div>
+      </SignedOut>
+      <SignedIn>
+        <div className="flex w-screen items-center justify-center">
           <Images />
-        </SignedIn>
-      </div>
+        </div>
+      </SignedIn>
     </main>
   );
 }
