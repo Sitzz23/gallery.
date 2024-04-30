@@ -36,34 +36,30 @@ const Images = async () => {
   return (
     <div className="flex flex-wrap justify-start gap-4">
       {images.map((image) => (
-        <div
-          key={image.id}
-          className="overflow-hidden rounded-md bg-neutral-100"
-        >
+        <div key={image.id} className="flex flex-col gap-2 overflow-hidden">
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
               alt={image.name}
               width={210}
               height={364}
-              className={cn("object-cover object-top", "aspect-square")}
+              className={"aspect-square rounded-md object-cover object-top"}
             />
           </Link>
-          <div className="flex gap-2 p-4 text-sm">
+          <div className="flex gap-2 rounded-md bg-neutral-100 p-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
+              viewBox="0 0 20 20"
+              fill="currentColor"
               className="h-4 w-4"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                fillRule="evenodd"
+                d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-2.69l-2.22-2.219a.75.75 0 0 0-1.06 0l-1.91 1.909.47.47a.75.75 0 1 1-1.06 1.06L6.53 8.091a.75.75 0 0 0-1.06 0l-2.97 2.97ZM12 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+                clipRule="evenodd"
               />
             </svg>
+
             <h3 className="font-medium leading-none">{image.name}</h3>
           </div>
         </div>
