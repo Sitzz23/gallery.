@@ -23,7 +23,7 @@
 
 .modal {
   width: 80%;
-  max-width: 800px;
+  max-width: 742px;
   height: auto;
   max-height: 800px;
   border: none;
@@ -38,24 +38,20 @@
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 48px;
-  height: 48px;
-  background-color: transparent;
+  top: 23px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background-color: black;
   border: none;
-  border-radius: 15px; /* Circular shape */
+  border-radius: 500px; /* Circular shape */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.close-button:hover {
-  background-color: #eee;
-}
-
 .close-button:after {
   content: "X";
-  color: black;
+  color: white;
 }
