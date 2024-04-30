@@ -2,7 +2,6 @@ import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
-import { cn } from "~/lib/utils";
 // import { Dialog, DialogTrigger } from "~/components/ui/dialog";
 import { getImages } from "~/server/queries";
 

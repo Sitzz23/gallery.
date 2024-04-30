@@ -17,16 +17,13 @@ export function Modal({ children }: { children: React.ReactNode }) {
   function onDismiss() {
     router.back();
   }
-
   return createPortal(
-    <dialog
-      ref={dialogRef}
-      className="h-screen w-screen bg-zinc-900/80"
-      onClose={onDismiss}
-    >
-      {children}
-      <button onClick={onDismiss} className="close-button" />
-    </dialog>,
+    <div className="modal-backdrop">
+      <dialog ref={dialogRef} className="modal" onClose={onDismiss}>
+        {children}
+        <button onClick={onDismiss} className="close-button" />
+      </dialog>
+    </div>,
     document.getElementById("modal-root")!,
   );
 }
