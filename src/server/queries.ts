@@ -17,6 +17,20 @@ export async function getImages() {
   return images;
 }
 
+export async function getOtherImages(id: number) {
+  const user = auth();
+
+  if (!user.userId) throw new Error("Unauthorized");
+
+  const images = await db.query.images.findMany({
+    limit: 8,
+    where: (model, { eq, and, not }) =>
+      and(eq(model.userId, user.userId), not(eq(model.id, id))),
+    orderBy: (model, { desc }) => desc(model.id),
+  });
+  return images;
+}
+
 export async function getImage(id: number) {
   const user = auth();
 
