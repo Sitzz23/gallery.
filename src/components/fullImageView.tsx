@@ -33,7 +33,12 @@ const FullImageView = async ({ photoId }: { photoId: number }) => {
           </div>
         </div>
         <div className="flex items-center justify-end gap-4">
-          {image && <CopyToClipboardButton stringToCopy={image.url} />}
+          {image && (
+            <CopyToClipboardButton
+              stringToCopy={image.url}
+              itemCopied={image.name}
+            />
+          )}
 
           <form
             action={async () => {
