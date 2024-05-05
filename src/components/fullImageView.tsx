@@ -11,10 +11,15 @@ const FullImageView = async ({ photoId }: { photoId: number }) => {
   const userInfo = await clerkClient.users.getUser(image.userId);
 
   return (
-    <div className=" flex max-w-full justify-between gap-4 p-4">
+    <div className=" flex max-w-full justify-between gap-6 p-4">
+      <img
+        src={image.url}
+        alt={image.name}
+        className={"h-[88.5vh] w-auto rounded-md object-contain object-top"}
+      />
       <div className="flex grow flex-col justify-between">
-        <div className="flex flex-col items-end justify-between gap-4">
-          <div className="flex w-full items-center justify-between gap-2 text-sm">
+        <div className="flex flex-col items-start justify-between gap-4">
+          <div className="flex w-full items-center gap-4">
             <div className="flex items-center gap-2 rounded-md bg-neutral-200 p-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,11 +36,11 @@ const FullImageView = async ({ photoId }: { photoId: number }) => {
               <h3 className="font-medium leading-none">{image.name}</h3>
             </div>
             <div className="flex items-center gap-2 rounded-md bg-neutral-200 p-3">
-              <span className="font-medium">✦</span>
+              <span className="text-xs font-medium">✦</span>
               <h3 className="font-medium leading-none">{userInfo.fullName}</h3>
             </div>
           </div>
-          <div className="flex items-center justify-end gap-4">
+          <div className="flex items-center justify-start gap-4">
             {image && (
               <CopyToClipboardButton
                 stringToCopy={image.url}
@@ -80,11 +85,6 @@ const FullImageView = async ({ photoId }: { photoId: number }) => {
           <OtherImages imageId={image.id} />
         </div>
       </div>
-      <img
-        src={image.url}
-        alt={image.name}
-        className={"h-[88.5vh] w-auto rounded-md object-contain object-top"}
-      />
     </div>
   );
 };
@@ -95,17 +95,20 @@ const OtherImages = async ({ imageId }: { imageId: number }) => {
   return (
     <div className="flex flex-wrap justify-start gap-4 overflow-y-scroll">
       {images.map((image) => (
-        <div key={image.id} className="flex flex-col gap-2 overflow-hidden">
+        <div
+          key={image.id}
+          className="flex w-[23%] flex-col items-center gap-2 overflow-hidden"
+        >
           <Link href={`/img/${image.id}`}>
             <Image
               src={image.url}
               alt={image.name}
-              width={192}
+              width={180}
               height={364}
               className={"aspect-square rounded-md object-cover object-top"}
             />
           </Link>
-          <div className="flex gap-2 rounded-md bg-neutral-100 p-3 text-sm">
+          <div className="flex w-[180px] gap-2 rounded-md bg-neutral-100 p-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -119,7 +122,9 @@ const OtherImages = async ({ imageId }: { imageId: number }) => {
               />
             </svg>
 
-            <h3 className="font-medium leading-none">{image.name}</h3>
+            <h3 className=" grow truncate font-medium leading-none">
+              {image.name}
+            </h3>
           </div>
         </div>
       ))}
