@@ -10,10 +10,10 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="bg-background/60 sticky top-0 z-10 flex h-16 items-center gap-10 border-b px-4 backdrop-blur-xl transition-all">
+    <nav className="bg-background/60 sticky top-0 z-10 flex h-16 items-center gap-10 px-4 backdrop-blur-xl transition-all">
       <Link href="/" className="flex items-center space-x-2">
-        <span className="font-urban inline-block text-xl font-bold">
-          Gallery
+        <span className="inline-block rounded-md py-0.5 pr-2 text-left text-3xl font-black tracking-tighter underline">
+          gallery.
         </span>
       </Link>
       <div className="ml-auto flex items-center space-x-4">
