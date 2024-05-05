@@ -14,7 +14,6 @@ export default async function PhotoModal({
 
   return (
     <Modal>
-      {/* <FullImageView photoId={Number(photoId)} /> */}
       <div className=" flex h-full w-full flex-col gap-4">
         <div className="mr-12 flex items-center justify-between gap-4">
           <div className="flex w-full items-center justify-between gap-2 rounded-md bg-neutral-100 p-3 text-sm">
@@ -49,11 +48,6 @@ export default async function PhotoModal({
             </Button>
           </form>
         </div>
-        {/* <Image
-          src={image.url}
-          alt={image.name}
-          className={"aspect-square w-full rounded-md object-cover object-top"}
-        /> */}
         <Image
           src={image.url}
           alt={image.name}

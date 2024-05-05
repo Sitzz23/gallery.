@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import Navbar from "~/app/_components/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ourFileRouter } from "./api/uploadthing/core";
+import { Toaster } from "~/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
             <Navbar />
             <main className="overflow-y-scroll">{children}</main>
             {modal}
+            <Toaster />
           </div>
           <div id="modal-root" />
         </body>
