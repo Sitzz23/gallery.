@@ -7,6 +7,7 @@ import Navbar from "~/app/_components/navbar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
+import { CSPostHogProvider } from "./_analytics/providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,18 +29,20 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <body className={`font-sans ${inter.variable}`}>
-          <div className="grid h-screen grid-rows-[auto,1fr]">
-            <Navbar />
-            <main className="overflow-y-scroll">{children}</main>
-            {modal}
-            <Toaster />
-          </div>
-          <div id="modal-root" />
-        </body>
-      </html>
+      <CSPostHogProvider>
+        <html lang="en">
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+          <body className={`font-sans ${inter.variable}`}>
+            <div className="grid h-screen grid-rows-[auto,1fr]">
+              <Navbar />
+              <main className="overflow-y-scroll">{children}</main>
+              {modal}
+              <Toaster />
+            </div>
+            <div id="modal-root" />
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }
