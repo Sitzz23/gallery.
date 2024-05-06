@@ -33,6 +33,9 @@ const useUploadThingInputProps = (...args: Input) => {
 export const CustomUploadButton = () => {
   const router = useRouter();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
+    onUploadError() {
+      toast.error("something went wrong!");
+    },
     onUploadBegin() {
       toast.loading("uploading...", {
         id: "upload-sonner",
