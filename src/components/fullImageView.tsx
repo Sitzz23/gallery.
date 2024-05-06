@@ -11,11 +11,13 @@ const FullImageView = async ({ photoId }: { photoId: number }) => {
   const userInfo = await clerkClient.users.getUser(image.userId);
 
   return (
-    <div className=" flex max-w-full justify-between gap-6 p-4">
+    <div className=" flex h-full max-w-full justify-between gap-6 p-4">
       <img
         src={image.url}
         alt={image.name}
-        className={"h-[88.5vh] w-auto rounded-md object-contain object-top"}
+        className={
+          "aspect-square max-h-[88.5vh] max-w-[45%] rounded-md object-cover object-center"
+        }
       />
       <div className="flex grow flex-col justify-between">
         <div className="flex flex-col items-start justify-between gap-4">
@@ -108,7 +110,7 @@ const OtherImages = async ({ imageId }: { imageId: number }) => {
               className={"aspect-square rounded-md object-cover object-top"}
             />
           </Link>
-          <div className="flex w-[180px] gap-2 rounded-md bg-neutral-100 p-3 text-sm">
+          <div className="flex w-full max-w-[180px] gap-2 rounded-md bg-neutral-100 p-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
