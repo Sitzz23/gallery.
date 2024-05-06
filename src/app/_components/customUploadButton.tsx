@@ -18,7 +18,6 @@ const useUploadThingInputProps = (...args: Input) => {
     const result = await $ut.startUpload(selectedFiles);
 
     console.log("uploaded files", result);
-    // TODO: persist result in state maybe?
   };
 
   return {
@@ -36,9 +35,10 @@ export const CustomUploadButton = () => {
   const posthog = usePostHog();
 
   const { inputProps } = useUploadThingInputProps("imageUploader", {
-    onUploadError() {
+    onUploadError(error) {
       toast.error("something went wrong!");
-      posthog.capture("error in uploading image");
+      toast.dismiss("upload-sonner");
+      posthog.capture("error in uploading image", { error });
     },
     onUploadBegin() {
       posthog.capture("Click on upload button");
