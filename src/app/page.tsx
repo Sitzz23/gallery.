@@ -45,7 +45,7 @@ const Images = async () => {
               className={"aspect-square rounded-md object-cover object-top"}
             />
           </Link>
-          <div className="flex gap-2 rounded-md bg-neutral-100 p-3 text-sm">
+          <div className="flex w-[210px] gap-2 rounded-md bg-neutral-100 p-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -59,7 +59,7 @@ const Images = async () => {
               />
             </svg>
 
-            <h3 className="font-medium leading-none">{image.name}</h3>
+            <h3 className="truncate font-medium leading-none">{image.name}</h3>
           </div>
         </div>
       ))}
