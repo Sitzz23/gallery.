@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import { toast } from "sonner";
 import { useUploadThing } from "~/utils/uploadthing";
 
@@ -32,16 +33,21 @@ const useUploadThingInputProps = (...args: Input) => {
 
 export const CustomUploadButton = () => {
   const router = useRouter();
+  const posthog = usePostHog();
+
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadError() {
       toast.error("something went wrong!");
+      posthog.capture("error in uploading image");
     },
     onUploadBegin() {
+      posthog.capture("Click on upload button");
       toast.loading("uploading...", {
         id: "upload-sonner",
       });
     },
     onClientUploadComplete() {
+      posthog.capture("uploaded successfully");
       toast.dismiss("upload-sonner");
       toast.success("upload complete!");
       router.refresh();
