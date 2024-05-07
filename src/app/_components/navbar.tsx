@@ -30,7 +30,7 @@ const Navbar = () => {
         </SignedOut>
         <SignedIn>
           <div className="flex items-center justify-center gap-4">
-            <CustomUploadButton />
+            <CustomUploadButton underline={false} />
           </div>
           <UserButton />
         </SignedIn>
