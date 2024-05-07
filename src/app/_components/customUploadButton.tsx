@@ -30,7 +30,7 @@ const useUploadThingInputProps = (...args: Input) => {
   };
 };
 
-export const CustomUploadButton = () => {
+export const CustomUploadButton = ({ underline }: { underline: boolean }) => {
   const router = useRouter();
   const posthog = usePostHog();
 
@@ -54,7 +54,7 @@ export const CustomUploadButton = () => {
     },
   });
   return (
-    <div>
+    <div className={underline ? "underline" : ""}>
       <label
         htmlFor="upload-button"
         className="mx-2 flex cursor-pointer items-center gap-1"
