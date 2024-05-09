@@ -38,7 +38,7 @@ const Images = async () => {
   return (
     <>
       {images.length > 0 ? (
-        <div className="flex flex-wrap justify-start gap-4">
+        <div className="flex h-full flex-wrap justify-start gap-4">
           {images.map((image) => (
             <div key={image.id} className="flex flex-col gap-2 overflow-hidden">
               <Link href={`/img/${image.id}`}>
