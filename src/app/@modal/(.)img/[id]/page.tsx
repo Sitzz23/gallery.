@@ -3,6 +3,7 @@ import { Modal } from "./modal";
 import { clerkClient } from "@clerk/nextjs/server";
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
+import ExpandButton from "~/components/expandButton";
 
 export default async function PhotoModal({
   params: { id: photoId },
@@ -14,7 +15,7 @@ export default async function PhotoModal({
 
   return (
     <Modal>
-      <div className=" flex h-full w-full flex-col gap-4">
+      <div className=" relative flex h-full w-full flex-col gap-4">
         <div className="mr-12 flex items-center justify-between gap-4">
           <div className="flex w-full items-center justify-between gap-2 rounded-md bg-neutral-100 p-3 text-sm">
             <div className="flex items-center gap-2">
@@ -37,6 +38,8 @@ export default async function PhotoModal({
               <h3 className="font-medium leading-none">{userInfo.fullName}</h3>
             </div>
           </div>
+          <ExpandButton />
+
           <form
             action={async () => {
               "use server";
